@@ -1,0 +1,44 @@
+
+<h1 class="my-header"> Add to Phone Book. </h1>
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" class="update-container">
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Choose an option</mat-label>
+        <mat-select formControlName="type">
+          <mat-option value="Work">Work</mat-option>
+          <mat-option value="Cellphone">Cellphone</mat-option>
+          <mat-option value="Home">Home</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    <div class="form-field-container">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input type="number" matInput formControlName="number">
+      </mat-form-field>
+    </div>
+  
+    <div class="form-field-container">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input type="text" matInput formControlName="first" >
+        </mat-form-field>
+        <div *ngIf="myForm.get('first')?.invalid && myForm.get('first')?.touched">
+            <small class="danger" *ngIf="myForm.get('first')?.errors?.invalidemail" > First Name is not valid  </small>
+        </div>
+    </div>
+
+    <div class="form-field-container">
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput formControlName="last" > 
+        </mat-form-field>
+        <div *ngIf="myForm.get('last')?.invalid && myForm.get('last')?.touched">
+            <small class="danger" *ngIf="myForm.get('last')?.errors?.invalidemail" > Last Name is not valid  </small>
+        </div>
+    </div>
+
+    <button mat-button color="primary" type="submit">Post</button>
+  </form>

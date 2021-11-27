@@ -1,0 +1,29 @@
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <mat-list>
+      <div mat-subheader class="menu-btn">Menu</div>
+      <mat-list-item *ngFor="let folder of folders" class="menu-btn">
+          <a [routerLink] = "folder.path" href="#" class="menu-links">
+              <div> <mat-icon mat-list-icon>{{folder.icon}}</mat-icon> </div>
+              <div mat-line class="menu-text">{{folder.name}}</div>
+              <mat-divider></mat-divider>
+          </a>
+
+      </mat-list-item>
+    </mat-list>
+
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <mat-toolbar>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+      <button (click)="drawer.toggle()" mat-icon-button class="example-icon menu-btn" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-drawer-container>

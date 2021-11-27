@@ -1,0 +1,39 @@
+<div>
+  <div>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)" class="update-container">
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Choose an option</mat-label>
+          <mat-select formControlName="type">
+            <mat-option value="Work">Work</mat-option>
+            <mat-option value="Cellphone">Cellphone</mat-option>
+            <mat-option value="Home">Home</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <button mat-button color="primary" type="submit">Filter</button>
+    </form>
+  </div>
+  <div>
+    <button mat-button color="primary" (click)= "getAllResults()">All</button>
+  </div>
+
+</div>
+
+
+<mat-card class="example-card" *ngFor = "let phooneBookEntry of phooneBookList; index as i;">
+    <mat-card-header>
+      <mat-card-title> <span class="space-betwen">{{phooneBookEntry.first}}</span> <span>{{phooneBookEntry.last}}</span> </mat-card-title>
+      <mat-card-subtitle> <span>{{phooneBookEntry.type}}</span> </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <span>{{phooneBookEntry.number}}</span>
+    </mat-card-content>
+    <mat-card-actions>
+      <a class="warn-col" mat-button [routerLink] = "['/update/', phooneBookEntry.id]">Update</a>
+      <button class="danger-col" mat-button (click)="openDialog(phooneBookEntry.id)" >Delete</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-paginator showFirstLastButtons [length]="totalElements" [pageSizeOptions]="[3, 5, 10, 25, 100]"
+  [pageSize]="size" (page)="onPaginationChange($event)"></mat-paginator> 

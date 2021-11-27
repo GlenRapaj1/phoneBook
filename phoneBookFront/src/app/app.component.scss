@@ -1,0 +1,36 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  mat-drawer-container{
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  mat-toolbar{
+    background-color: #3f51b5;
+    color: white;
+  }
+  
+  .menu-btn{
+    background-color: #3f51b5;
+    color: white;
+    border: 0px;
+  }
+  
+  .mat-drawer{
+    background-color: #3f51b5;
+    color: white;
+  }
+  
+  .menu-links{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .menu-text{
+    margin-top: 7px;
+  }
+  

@@ -1,0 +1,17 @@
+// JSON Documentation
+// http://localhost:8080/v3/api-docs
+
+// Swagger ui
+// http://localhost:8080/swagger-ui.html
+
+--------------------------------------------------
+
+1.	Multiple entries under the same name are allowed.
+2.	Registered Users should have a First Name.
+3.	Registered Users should have a Last Name.
+4.	Registered Users must have at least one a number. (They can have more than one)
+5.	One phone number can have only one owner.
+6.	Phone number cannot be duplicated.
+7.	You cannot register another user with the same phone number. You should update the existing one.
+8.	You cannot register another user with the same phone number. You should first delete the existing one.
+9.      Phone number cannot contain + signee. It should contain only numbers.
