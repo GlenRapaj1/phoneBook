@@ -41,6 +41,7 @@ public class PhoneBookService {
     }
 
     public Page<PhoneBook> getAllPhoneBookEntry(int page, int size){
+        // Pageable paging = PageRequest.of(page, size, Sort.by( "first" ).and(Sort.by("last")) ); 
         Pageable paging = PageRequest.of(page, size, Sort.by( "first" ) );
         return phoneBookRepo.findAll(paging);
     }
