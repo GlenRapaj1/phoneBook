@@ -14,12 +14,12 @@ export class ComunicateBackEndService {
 
   constructor( private http : HttpClient) { }
 
-  async searchPhoneBook( page : number, size : number ) : Promise<any>  { // Observable<any> 
+  async searchPhoneBook( page : number, size : number ) : Promise<any>  { 
     const res : any = await this.http.get<any>( `${url}get-all-phone-entry/${page}/${size}` ).toPromise();
     return res;
   }
 
-  async getPhoneBookEntrById( id : string ) : Promise<any>  { // Observable<any> 
+  async getPhoneBookEntrById( id : string ) : Promise<any>  { 
     const res : any = await this.http.get<any>( `${url}get-phone-entry/${id}` ).toPromise();
     return res;
   }
@@ -28,17 +28,17 @@ export class ComunicateBackEndService {
     const res : any = await this.http.delete<any>( `${url}delete-phone-book-entry-id/${id}` ).toPromise();
   }
 
-  async updatePhoneBookEntrById( id : string, phoneBookEntr : PhoneBook ) : Promise<any>  { // Observable<any> 
+  async updatePhoneBookEntrById( id : string, phoneBookEntr : PhoneBook ) : Promise<any>  { 
     const res : any = await this.http.put<any>( `${url}modify-phone-book-entry/${id}`, phoneBookEntr).toPromise();
     return res;
   }
 
-  async postPhoneBookEntry( phoneBookEntr : PhoneBook ) : Promise<any>  { // Observable<any> 
+  async postPhoneBookEntry( phoneBookEntr : PhoneBook ) : Promise<any>  { 
     const res : any = await this.http.post<any>( `${url}add-phone-book-entry`, phoneBookEntr).toPromise();
     return res;
   }
 
-  async getPagePhoneBookEntryByType( page : number, size : number, type : string ) : Promise<any>  { // Observable<any> 
+  async getPagePhoneBookEntryByType( page : number, size : number, type : string ) : Promise<any>  { 
     const res : any = await this.http.get<any>( `${url}get-all-phone-entry-by-type/${page}/${size}/${type}` ).toPromise();
     return res;
   }
