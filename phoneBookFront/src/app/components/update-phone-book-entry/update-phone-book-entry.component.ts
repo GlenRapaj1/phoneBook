@@ -33,33 +33,28 @@ export class UpdatePhoneBookEntryComponent implements OnInit {
       });
 
     this.id = this.route.snapshot.paramMap.get('id') as string;
-    console.log( 'id: ', this.id );
+//     console.log( 'id: ', this.id );
     this.phoneBookEntr = await this.http.getPhoneBookEntrById(this.id);
-    console.log( 'phoneBookEntr: ', this.phoneBookEntr );
+//     console.log( 'phoneBookEntr: ', this.phoneBookEntr );
     this.myForm.setValue({
       first : this.phoneBookEntr.first,
       last : this.phoneBookEntr.last,
       number: this.phoneBookEntr.number,
       type: this.phoneBookEntr.type
     });
-
   }
 
   async onSubmit(myForm : FormGroup ){
-    console.log( myForm );
-    console.log( myForm.valid );
+//     console.log( myForm );
+//     console.log( myForm.valid );
     if(!myForm.valid){
       this.openSnackBar('E gjithe forma duhet plotesuar.');
       return;
     }
-    console.log( 'first: ', myForm.value.first );
-    console.log( 'last: ', myForm.value.last );
-    console.log( 'number: ', myForm.value.number );
-    console.log( 'type: ', myForm.value.type );
+//     console.log( 'first: ', myForm.value.first );
     const phoneBookEntr : PhoneBook = {...myForm.value, id : this.id };
     await this.http.updatePhoneBookEntrById(this.id, phoneBookEntr)
     this.router.navigate(['/list']);
-
   }
 
   openSnackBar(message : string) {
