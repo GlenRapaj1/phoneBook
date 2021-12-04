@@ -16,13 +16,11 @@ export class ComunicateBackEndService {
 
   async searchPhoneBook( page : number, size : number ) : Promise<any>  { // Observable<any> 
     const res : any = await this.http.get<any>( `${url}get-all-phone-entry/${page}/${size}` ).toPromise();
-    // console.log( '\n\n ressponse : ', res );
     return res;
   }
 
   async getPhoneBookEntrById( id : string ) : Promise<any>  { // Observable<any> 
     const res : any = await this.http.get<any>( `${url}get-phone-entry/${id}` ).toPromise();
-    console.log( '\n\n ressponse : ', res );
     return res;
   }
 
@@ -42,7 +40,15 @@ export class ComunicateBackEndService {
 
   async getPagePhoneBookEntryByType( page : number, size : number, type : string ) : Promise<any>  { // Observable<any> 
     const res : any = await this.http.get<any>( `${url}get-all-phone-entry-by-type/${page}/${size}/${type}` ).toPromise();
-    // console.log( '\n\n ressponse : ', res );
     return res;
   }
+  
+//    deletePhoneBookEntrById( id : string ) : Observable<any> {  
+//     return this.http.delete<any>( `${url}delete-phone-book-entry-id/${id}` )
+//       .pipe( catchError(this.handleError) );
+//   }
+  
+//   handleError(error : any) {
+//         // console.log( 'error : ', error );
+//   }
 }
